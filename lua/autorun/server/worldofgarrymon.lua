@@ -11,6 +11,9 @@ WAG.MaxGarryMon = 11
 -- how many seconds we check to see if we need to spawn new pokemon
 WAG.SpawnCheckInterval = 30
 
+-- if running in sandbox, do we stop assholes from spawning their own npcs
+WAG.SandboxSpawnProtection = true
+
 -- Taken from zombie invasion, which was taken from nodegrapher, and now here too
 -- sharing is caring
 WAG.Nodes = {}
@@ -164,3 +167,15 @@ hook.Add("PlayerInitialSpawn", "WAG_PlayerInitSpawn", function(ply)
 		end)
 	end
 end)
+
+-- If this is sandbox, stop people from creating AntLion Guards and capturing them like assholes
+if (WAG.SandboxSpawnProtection and engine.ActiveGamemode() == "sandbox") then
+	WAG.Log("Sandbox Spawn Protection enabled")
+	hook.Add("PlayerSpawnNPC", "WAGRestrictNPCs", function(ply, npc, weapon)
+		-- admins can do it, because corrupt
+		if (ply:IsAdmin()) then return true end
+		
+		ply:PrintMessage(HUD_PRINTTALK, "NPC spawning is disabled. Use your Pokemon")
+		return false
+	end)
+end
