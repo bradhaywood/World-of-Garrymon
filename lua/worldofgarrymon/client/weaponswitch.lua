@@ -109,11 +109,6 @@ hook.Add("PlayerBindPress", "WAG WeaponSwap", function(ply, bind, pressed)
   	WAGWeap.SlotSelection = 1
   	WAGWeap.ShowSelection = false
   	return true
-  elseif (bind == "impulse 100" and pressed) then
-  	if (not ply:IsOnGround()) then
-  		ply:ConCommand("para_ragact")
-  		return true
-  	end
   end
 end)
 
