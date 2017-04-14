@@ -45,7 +45,7 @@ hook.Add("Initialize", "WAG_Init", function()
 	end
 end)
 
-hook.Add("PostInitEntity", "WAG_PostInit", function()
+hook.Add("InitPostEntity", "WAG_PostInit", function()
 	if (WAG.Enabled) then
 		if (#WAG.Nodes > 0) then
 			-- spawn some bitches once the map loads
