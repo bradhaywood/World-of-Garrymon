@@ -6,7 +6,11 @@ include "server/player_extension.lua"
 AddCSLuaFile "client/wmessage.lua"
 AddCSLuaFile "client/removeragdolls.lua"
 
+if (WAG.QuickDraw) then
+	AddCSLuaFile "client/quickdraw.lua"
+end
+
 if (WAG.Hud) then
 	AddCSLuaFile "client/hud.lua"
-	AddCSLuaFile "client/weaponswitch.lua"
+	--AddCSLuaFile "client/weaponswitch.lua"
 end

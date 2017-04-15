@@ -14,7 +14,6 @@ WMessage.Displayed = false
 --local wHudTextColor = Color(36, 98, 121)
 function DrawText()
 	if (WMessage.String ~= nil and WMessage.Displayed) then
-
 		surface.SetFont("MessageFont")
 		local hudW = surface.GetTextSize(WMessage.String)
 		local hudH = 43
@@ -34,6 +33,7 @@ end
 hook.Add("HUDPaint", "DrawText", DrawText);
 
 net.Receive("WMessage", function(len, ply)
+	surface.PlaySound("pokemon/menu_select.ogg")
 	WMessage.String = net.ReadString()
 	WMessage.Displayed = CurTime()
 end)

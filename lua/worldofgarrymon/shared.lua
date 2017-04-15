@@ -18,6 +18,9 @@ WAG.SpawnCheckInterval = 30
 -- if running in sandbox, do we stop assholes from spawning their own npcs
 WAG.SandboxSpawnProtection = true
 
+-- enable the quick slot mechanic using the 'q' menu?
+WAG.QuickDraw = true
+
 -- a table to hold the nodes
 WAG.Nodes = {}
 
